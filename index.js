@@ -52,7 +52,8 @@ const parsePage = async () => {
     return JSON.stringify(month);
   });
 
-  // return resolvedMonths;
+  console.log(resolvedMonths);
+  return resolvedMonths;
 };
 
 const getEvents = async (page) => {
@@ -84,7 +85,7 @@ const getEvents = async (page) => {
       country,
       event,
       event_link: event_link
-        ? `https://tradingeconomics.com/${event_link}`
+        ? `https://tradingeconomics.com${event_link}`
         : null,
     };
   });
@@ -93,9 +94,4 @@ const getEvents = async (page) => {
   return result;
 };
 
-const main = async () => {
-  const result = await parsePage();
-  return result;
-};
-
-main();
+parsePage();
